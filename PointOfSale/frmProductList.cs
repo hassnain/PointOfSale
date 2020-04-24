@@ -16,6 +16,7 @@ namespace PointOfSale
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
+        string stitle = "POS System";
         public frmProductList()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace PointOfSale
             int i = 0;
             dataGridProduct.Rows.Clear();
             cn.Open();
-            cm = new SqlCommand("Select p.pcode, p.pdesc, b.brand, c.category, p.price, p.qty from tblProduct as p inner join tblBrand as b on b.id = p.bid inner join tblCategory as c on c.id = p.cid where p.pdesc like '" + txtSearchProduct.Text + "%'",cn);
+            cm = new SqlCommand("Select p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty from tblProduct as p inner join tblBrand as b on b.id = p.bid inner join tblCategory as c on c.id = p.cid where p.pdesc like '" + txtSearchProduct.Text + "%' order by p.pdesc",cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
