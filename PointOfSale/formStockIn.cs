@@ -26,13 +26,15 @@ namespace PointOfSale
 
         public void LoadProduct()
         {
+            int i = 0;
             dataGridProduct.Rows.Clear();
             cn.Open();
-            cm = new SqlCommand("select pcode,pdesc,price from tblProduct where pdesc like '%" + txtSearchProduct.Text + "%' order by pdesc",cn);
+            cm = new SqlCommand("select pcode, pdesc, qty from tblProduct where pdesc like '%" + txtSearchProduct.Text + "%' order by pdesc",cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                dataGridProduct.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
+                i++;
+                dataGridProduct.Rows.Add(i,dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
             }
             dr.Close();
             cn.Close();
@@ -43,6 +45,57 @@ namespace PointOfSale
         }
 
         private void formStockIn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dataGridProduct.Columns[e.ColumnIndex].Name;
+            if (colName=="colSelect")
+            {
+                if(MessageBox.Show("Add This Item ?",stitle, MessageBoxButtons.YesNo ,MessageBoxIcon.Question)== DialogResult.Yes)
+
+                {
+                    string productPcode= dataGridProduct.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    cn.Open();
+                    cm = new SqlCommand("insert into tblStockIn(refno, pcode, sdate, stockinby)values(@refno, @pcode, @sdate, @stockinby)", cn); //* from tblProduct pcode like '" + dataGridProduct.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", cn);
+                    cm.Parameters.AddWithValue("@refno",txtRefNo.Text);
+                    cm.Parameters.AddWithValue("@pcode",productPcode );
+                    cm.Parameters.AddWithValue("@sdate",date1.Value);
+                    cm.Parameters.AddWithValue("@stockinby",txtStockInBy.Text);
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+
+                    MessageBox.Show("successfully Added",stitle,MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    loadStockIn();
+                }
+               
+
+            }
+        }
+        public void loadStockIn()
+        {
+            int i=0;
+            dataGridShowStock.Rows.Clear();
+            cn.Open();
+            cm = new SqlCommand("select * from vwStockIn",cn);
+            dr = cm.ExecuteReader();
+            while(dr.Read())
+            {
+                i++;
+                dataGridShowStock.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+            }
+            dr.Close();
+            cn.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridShowStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

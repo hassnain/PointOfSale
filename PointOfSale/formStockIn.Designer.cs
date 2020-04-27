@@ -41,9 +41,9 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colSelect = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtSearchProduct = new MetroFramework.Controls.MetroTextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridShowStock = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reference = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,15 +54,15 @@
             this.stockInBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delet = new System.Windows.Forms.DataGridViewImageColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtRefNo = new System.Windows.Forms.TextBox();
+            this.txtStockInBy = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.date1 = new System.Windows.Forms.DateTimePicker();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridShowStock)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -121,7 +121,7 @@
             this.Column2,
             this.Column4,
             this.Column7,
-            this.Delete});
+            this.colSelect});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,6 +139,7 @@
             this.dataGridProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridProduct.Size = new System.Drawing.Size(330, 458);
             this.dataGridProduct.TabIndex = 8;
+            this.dataGridProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduct_CellContentClick);
             // 
             // Column1
             // 
@@ -158,29 +159,28 @@
             // 
             // Column4
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column4.HeaderText = "DESCRIPTION";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
-            this.Column4.Width = 123;
             // 
             // Column7
             // 
             this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column7.HeaderText = "ON HAND";
+            this.Column7.HeaderText = "QTY";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
-            this.Column7.Width = 101;
+            this.Column7.Width = 58;
             // 
-            // Delete
+            // colSelect
             // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Width = 6;
+            this.colSelect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colSelect.HeaderText = "";
+            this.colSelect.Image = ((System.Drawing.Image)(resources.GetObject("colSelect.Image")));
+            this.colSelect.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.colSelect.MinimumWidth = 6;
+            this.colSelect.Name = "colSelect";
+            this.colSelect.Width = 6;
             // 
             // txtSearchProduct
             // 
@@ -216,11 +216,11 @@
             this.txtSearchProduct.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearchProduct.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // dataGridView1
+            // dataGridShowStock
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridShowStock.AllowUserToAddRows = false;
+            this.dataGridShowStock.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridShowStock.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,10 +228,10 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.ColumnHeadersHeight = 30;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridShowStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridShowStock.ColumnHeadersHeight = 30;
+            this.dataGridShowStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridShowStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.id,
             this.Reference,
@@ -248,16 +248,17 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LemonChiffon;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(343, 197);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(743, 293);
-            this.dataGridView1.TabIndex = 10;
+            this.dataGridShowStock.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridShowStock.EnableHeadersVisualStyles = false;
+            this.dataGridShowStock.Location = new System.Drawing.Point(343, 197);
+            this.dataGridShowStock.Name = "dataGridShowStock";
+            this.dataGridShowStock.RowHeadersVisible = false;
+            this.dataGridShowStock.RowHeadersWidth = 51;
+            this.dataGridShowStock.RowTemplate.Height = 24;
+            this.dataGridShowStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridShowStock.Size = new System.Drawing.Size(743, 293);
+            this.dataGridShowStock.TabIndex = 10;
+            this.dataGridShowStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridShowStock_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -335,19 +336,20 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Reference No";
             // 
-            // textBox1
+            // txtRefNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(449, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(356, 27);
-            this.textBox1.TabIndex = 12;
+            this.txtRefNo.Location = new System.Drawing.Point(449, 84);
+            this.txtRefNo.Name = "txtRefNo";
+            this.txtRefNo.Size = new System.Drawing.Size(356, 27);
+            this.txtRefNo.TabIndex = 12;
+            this.txtRefNo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // txtStockInBy
             // 
-            this.textBox2.Location = new System.Drawing.Point(449, 117);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(356, 27);
-            this.textBox2.TabIndex = 14;
+            this.txtStockInBy.Location = new System.Drawing.Point(449, 117);
+            this.txtStockInBy.Name = "txtStockInBy";
+            this.txtStockInBy.Size = new System.Drawing.Size(356, 27);
+            this.txtStockInBy.TabIndex = 14;
             // 
             // label3
             // 
@@ -367,12 +369,12 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "Stock In Date";
             // 
-            // dateTimePicker1
+            // date1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(449, 151);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(356, 27);
-            this.dateTimePicker1.TabIndex = 16;
+            this.date1.Location = new System.Drawing.Point(449, 151);
+            this.date1.Name = "date1";
+            this.date1.Size = new System.Drawing.Size(356, 27);
+            this.date1.TabIndex = 16;
             // 
             // btnSave
             // 
@@ -392,13 +394,13 @@
             this.ClientSize = new System.Drawing.Size(1098, 548);
             this.ControlBox = false;
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.date1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtStockInBy);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtRefNo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridShowStock);
             this.Controls.Add(this.txtSearchProduct);
             this.Controls.Add(this.dataGridProduct);
             this.Controls.Add(this.panel1);
@@ -411,7 +413,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridShowStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,13 +425,8 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridProduct;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
         private MetroFramework.Controls.MetroTextBox txtSearchProduct;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridShowStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reference;
@@ -440,11 +437,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stockInBy;
         private System.Windows.Forms.DataGridViewImageColumn Delet;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtRefNo;
+        private System.Windows.Forms.TextBox txtStockInBy;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker date1;
         public System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewImageColumn colSelect;
     }
 }
