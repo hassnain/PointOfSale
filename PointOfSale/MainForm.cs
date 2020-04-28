@@ -65,12 +65,12 @@ namespace PointOfSale
         private void btnStock_Click(object sender, EventArgs e)
         {
             formStockIn frmStock = new formStockIn();
-            frmStock.LoadProduct();
+           // frmStock.LoadProduct();
             frmStock.ShowDialog();
-            //frmStock.TopLevel = false;
-           // MainPanel.Controls.Add(frmStock);
-            //frmStock.BringToFront();
-            //frmStock.Show();
+            frmStock.TopLevel = false;
+            MainPanel.Controls.Add(frmStock);
+            frmStock.BringToFront();
+            frmStock.Show();
         }
 
         private void btnPOS_Click(object sender, EventArgs e)
