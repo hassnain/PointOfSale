@@ -91,7 +91,7 @@ namespace PointOfSale
             int i=0;
             dataGridShowStock.Rows.Clear();
             cn.Open();
-            cm = new SqlCommand("select * from vwStockIn where refno like '" +txtRefNo.Text+ "'",cn);
+            cm = new SqlCommand("select * from vwStockIn where refno like '" +txtRefNo.Text+ "'and status like'pending'",cn);
             dr = cm.ExecuteReader();
             while(dr.Read())
             {
@@ -121,6 +121,7 @@ namespace PointOfSale
                     MessageBox.Show("Successfully Deleted", stitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     loadStockIn();
                 }
+                
             }
         }
 
@@ -129,6 +130,53 @@ namespace PointOfSale
             formSearchProductStockIn frmSearchProductStockIn = new formSearchProductStockIn(this);
             frmSearchProductStockIn.LoadProduct();
             frmSearchProductStockIn.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        public void Clear()
+        {
+            txtRefNo.Clear();
+            txtStockInBy.Clear();
+            date1.Value = DateTime.Now;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridShowStock.Rows.Count > 0)
+                {
+                    if (MessageBox.Show("Are You Sure You Wantto Save This Record ?", stitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        for (int i = 0; i < dataGridShowStock.Rows.Count; i++)
+                        {
+                            //update tblproduct qty
+                            cn.Open();
+                            cm = new SqlCommand("update tblproduct set qty = qty +" + int.Parse(dataGridShowStock.Rows[i].Cells[5].Value.ToString()) + "where pcode like '" + dataGridShowStock.Rows[i].Cells[3].Value.ToString() + "'", cn);
+                            cm.ExecuteNonQuery();
+                            cn.Close();
+
+                            //update tblstockin qty
+                            cn.Open();
+                            cm = new SqlCommand("update tblstockin set qty = qty +" + int.Parse(dataGridShowStock.Rows[i].Cells[5].Value.ToString()) + ",status = 'Done' where id like '" + dataGridShowStock.Rows[i].Cells[1].Value.ToString() + "'", cn);
+                            cm.ExecuteNonQuery();
+                            cn.Close();
+                        }
+
+                        Clear();
+                        loadStockIn();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message,stitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
