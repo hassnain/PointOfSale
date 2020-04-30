@@ -115,7 +115,7 @@
             this.btnStock.Name = "btnStock";
             this.btnStock.Size = new System.Drawing.Size(184, 32);
             this.btnStock.TabIndex = 3;
-            this.btnStock.Text = "   Stock In";
+            this.btnStock.Text = "   Stock Entry";
             this.btnStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStock.UseVisualStyleBackColor = true;
@@ -330,10 +330,11 @@
             // 
             // MainPanel
             // 
-            this.MainPanel.Location = new System.Drawing.Point(190, 37);
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(188, 37);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(985, 490);
+            this.MainPanel.Size = new System.Drawing.Size(1012, 563);
             this.MainPanel.TabIndex = 2;
             // 
             // MainForm

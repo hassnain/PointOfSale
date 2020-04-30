@@ -41,11 +41,28 @@ namespace PointOfSale
         //}
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void formStockIn_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void loadStockInHistory()
+        {
+            int i = 0;
+            dataGridShowStockHistory.Rows.Clear();
+            cn.Open();
+            cm = new SqlCommand("select * from vwStockIn where cast(sdate as date)  between'" + dateStart.Value.ToShortDateString() +"'and '" +dateEnd.Value.ToShortDateString() + "'and status like 'Done'", cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dataGridShowStockHistory.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), DateTime.Parse(dr[5].ToString()).ToShortDateString(), dr[6].ToString());
+            }
+            dr.Close();
+            cn.Close();
 
         }
 
@@ -177,6 +194,12 @@ namespace PointOfSale
                 cn.Close();
                 MessageBox.Show(ex.Message,stitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnLoadRecord_Click(object sender, EventArgs e)
+        {
+            loadStockInHistory();
+
         }
     }
 }

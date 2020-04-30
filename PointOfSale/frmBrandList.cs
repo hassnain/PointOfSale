@@ -79,7 +79,7 @@ namespace PointOfSale
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void frmBrandList_Load(object sender, EventArgs e)

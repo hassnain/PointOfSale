@@ -31,7 +31,7 @@ namespace PointOfSale
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
