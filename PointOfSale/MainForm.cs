@@ -76,8 +76,8 @@ namespace PointOfSale
 
         private void btnPOS_Click(object sender, EventArgs e)
         {
-            //frmPOS frm = new frmPOS();
-            //frm.ShowDialog();
+            formPOS frmPos = new formPOS();
+            frmPos.ShowDialog();
         }
 
         private void btnDashBoard_Click(object sender, EventArgs e)

@@ -105,6 +105,7 @@
             // 
             this.btnStock.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStock.FlatAppearance.BorderSize = 0;
+            this.btnStock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
             this.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStock.ForeColor = System.Drawing.Color.White;
@@ -125,6 +126,7 @@
             // 
             this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
@@ -144,6 +146,7 @@
             // 
             this.btnUserSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUserSettings.FlatAppearance.BorderSize = 0;
+            this.btnUserSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
             this.btnUserSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserSettings.ForeColor = System.Drawing.Color.White;
@@ -164,6 +167,7 @@
             // 
             this.btnSystemSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSystemSettings.FlatAppearance.BorderSize = 0;
+            this.btnSystemSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
             this.btnSystemSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSystemSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSystemSettings.ForeColor = System.Drawing.Color.White;
@@ -183,6 +187,7 @@
             // 
             this.btnRecords.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRecords.FlatAppearance.BorderSize = 0;
+            this.btnRecords.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
             this.btnRecords.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecords.ForeColor = System.Drawing.Color.White;
@@ -202,6 +207,7 @@
             // 
             this.btnbrand.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnbrand.FlatAppearance.BorderSize = 0;
+            this.btnbrand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
             this.btnbrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnbrand.ForeColor = System.Drawing.Color.White;
@@ -222,6 +228,7 @@
             // 
             this.btnCategory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCategory.FlatAppearance.BorderSize = 0;
+            this.btnCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
             this.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategory.ForeColor = System.Drawing.Color.White;
@@ -242,6 +249,7 @@
             // 
             this.btnProduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProduct.FlatAppearance.BorderSize = 0;
+            this.btnProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
             this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProduct.ForeColor = System.Drawing.Color.White;
@@ -279,6 +287,7 @@
             // 
             this.btnPOS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPOS.FlatAppearance.BorderSize = 0;
+            this.btnPOS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
             this.btnPOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPOS.ForeColor = System.Drawing.Color.White;
